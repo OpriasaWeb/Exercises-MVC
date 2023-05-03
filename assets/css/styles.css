@@ -1,0 +1,111 @@
+
+/* 
+    Created on : Apr 24, 2023, 2:09:09 PM
+    Author     : jdopriasa
+*/
+
+/* ----------------------------------------------------------- */
+
+*{
+  border: 0;
+  margin: 0;
+  overflow-x: none;
+}
+
+
+.input-section{
+  /* border: 1px solid black; */
+  width: 50%;
+  margin: auto;
+}
+
+ul{
+  display: none;
+}
+
+/* Error message */
+.lastname_error{
+  
+  display: hidden;
+}
+
+.firstname_error{
+  display: hidden;
+}
+
+.success{
+  display: hidden;
+}
+/* Error message */
+
+/* Validation form */
+.limitation{
+  font-size: 0.7rem;
+  color: green;
+}
+
+input.pattern{
+  font-weight: bold;
+}
+/* Validation form */
+
+/* ----------------------------------------------------------- */
+
+/* Input display modal */
+
+#favDialog{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px; 
+}
+
+/* Input display modal */
+
+/* Input display modal */
+
+#editDialog{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px; 
+}
+
+/* Input display modal */
+
+/* Input display modal */
+
+#deleteDialog{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px; 
+}
+
+/* Input display modal */
+
+/* ----------------------------------------------------------- */
+
+/* Error required message */
+#resultLname, #resultFname, #resultBirthdate, #resultGender, #resultAddress, #resultBarangay, #resultCity, #resultProvince, #resultRegion, #resultIsland{
+  color: red;
+  float: right;
+}
+/* Error required message */
+
+/* ----------------------------------------------------------- */
+
+/* Text bold current status */
+.bold{
+  font-weight: bold !important;
+}
+/* Text bold current status */
+
+
+
