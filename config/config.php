@@ -13,9 +13,7 @@ define("DBPASSA", "");
 // Define local database reserved to pwc
 
 // Define pwc database
-define("PWCdsn", "mysql:host=pwc-sapkdbsta57.mysql.database.azure.com;dbname=newtestdb");
-define("PWCUSER", "newtestuser@pwc-sapkdbsta57");
-define("PWCPASS", "nuser08162022!");
+
 // Define pwc database
 
 ?>
