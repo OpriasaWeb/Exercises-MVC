@@ -1,29 +1,82 @@
-<?php 
+<?php
+include '../model/user.class.php';
 
 
+class userController{
 
-//$handler = new handlerController();
+  public $userRecord;
 
-class main{
-    public $handler;
+  public function __construct(){
+    // require(APPROOT."/model/user.class.php");
+    $this->userRecord = new user();
+  }
+
+  // ------------------------------------------------------------- // 
+
+  // INSERT
+  public function insertAccount($fullname, $status){
+    $insertRecordAccount = $this->userRecord->insertAccount($fullname, $status);
+    return $insertRecordAccount;
+  }
+
+  public function insertAccountDetails($address, $gender){
+    $insertRecordAccountDetails = $this->userRecord->insertAccountDetails($address, $gender);
+    return $insertRecordAccountDetails;
+  }
+  // INSERT
+
+  // ------------------------------------------------------------- // 
+
+  // UPDATE/EDIT
+  public function editAccountRecord($id, $fullname, $status){
+    $editAccountRecord = $this->userRecord->editAccountRecord($id, $fullname, $status);
+    return $editAccountRecord;
+  }
+
+  public function editAccountDetailsRecord($id, $address){
+    $editAccountDetailsRecord = $this->userRecord->editAccountDetailsRecord($id, $address);
+    return $editAccountDetailsRecord;
+  }
+  // UPDATE/EDIT
+
+  // ------------------------------------------------------------- // 
+
+  // SELECT FOR UPDATE
+
+  public function selectAccount($id){
+    $selectAccount = $this->userRecord->selectAccount($id);
+    return $selectAccount;
+  }
+
+  public function selectAccountDetails($id){
     
-    public function __construct(){
-//        include(APPROOT."/model/User.php");
-        include(APPROOT.'/controller/handlerController.php');
-        $this->handler = new handlerController();
-    }
-    
-    public function insertAccount($fullname, $status){
-        $insertAccount = $this->handler->insert($fullname, $status);
-        return $insertAccount;
-    }
-    
-    public function insertAccountDetails($account_id, $address, $gender){
-        $insertAccountDetails = $this->handler->insertAccDtls($fullname, $status);
-        return $insertAccountDetails;
-    }
-    
+    $selectAccountDetails = $this->userRecord->selectAccountDetails($id);
+    return $selectAccountDetails;
+  }
+
+  // SELECT FOR UPDATE
+
+  // ------------------------------------------------------------- // 
+
+  // DELETE
+  public function deleteAccountRecord($id){
+    $deleteAccountRecord = $this->userRecord->deleteAccountRecord($id);
+    return $deleteAccountRecord;
+  }
+
+  public function deleteAccountDetailsRecord($id){
+    $deleteAccountDetailsRecord = $this->userRecord->deleteAccountDetailsRecord($id);
+    return $deleteAccountDetailsRecord;
+  }
+
+  // DELETE
+
+
+  // ------------------------------------------------------------- // 
+
 }
+
+
 
 
 ?>
