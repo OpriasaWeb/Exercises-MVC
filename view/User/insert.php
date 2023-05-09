@@ -5,27 +5,17 @@
 <?php
 
 // view represents the user interface of the application.
-
-// PWC
-// $pwcconn = new PDO('mysql:host=pwc-sapkdbsta57.mysql.database.azure.com;dbname=newtestdb', 'newtestuser@pwc-sapkdbsta57', 'nuser08162022!');
-// $pwcconn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 require_once("./config/config.php");
+
+// Local address
 $localaddress = new PDO(DSNA, DBUSERA, DBPASSA);
 $localaddress->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
-// $localaddress = new PDO('mysql:host=localhost;dbname=address', 'root', '@raym33B3m14');
-// $localaddress->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // Local
-// $local = new PDO('mysql:host=localhost;dbname=tutorial', 'root', '@raym33B3m14');
 $local = new PDO(DSN, DBUSER, DBPASS);
 $local->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
 ?>
-
 
 <!-- Include header -->
 <?php
@@ -37,7 +27,7 @@ $local->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   <div class="container">
     <div class="m-5">
     <p class="fs-4">PhilWeb exercises</p>
-    <a href="http://localhost/mvc_project/index.php?module=show&action=showall" class="btn btn-success float-end">View info</a>
+    <a href="http://localhost/mvc_project/index.php?module=home&action=showall" class="btn btn-success float-end">View info</a>
     </div>
   </div>
 
@@ -57,20 +47,7 @@ $local->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       </div>
       <p class="fs-5 text-bold">Address</p>
 
-      <!-- Account id increment -->
-      <?php
-      $sql = "SELECT account_id FROM tutorial.accountdetails ORDER BY account_id DESC LIMIT 1";
-      $statement = $local->query($sql);
-      // $statement->execute();
-      if ($statement && $statement->rowCount() > 0) {
-        $row = $statement->fetch(PDO::FETCH_ASSOC);
-        $accId = intval($row['account_id']);
-        $accId + 1;
-      }
-      ?>
-      <!-- Account id increment -->
 
-      <input type="hidden" name="account_id" id="account_id" value="<?php echo $accId + 1; ?>">
 
       <input type="hidden" name="status" id="status" value="active">
 
@@ -157,7 +134,7 @@ $local->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       </div>
 
       <div class="form-group">
-        <button type="submit" name="insert" id="insert" class="btn btn-primary float-end m-5" onclick="displayData()">Submit</button>
+        <button type="submit" name="insert" id="insert" class="insert btn btn-primary float-end m-5" onclick="displayData()">Submit</button>
         <!-- <input type="submit" value="Submit" name="insert" id="insert" class="btn btn-success btn-block mt-5 float-end" onclick="displayData()"> -->
       </div>
       
