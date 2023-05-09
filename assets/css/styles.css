@@ -105,6 +105,15 @@ input.pattern{
 .bold{
   font-weight: bold !important;
 }
+
+.active-status {
+  color: green;
+}
+
+.inactive-status {
+  color: red;
+}
+
 /* Text bold current status */
 
 

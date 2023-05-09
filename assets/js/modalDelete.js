@@ -1,9 +1,23 @@
 
-// Modal / dialog edit
+// Update / Edit 
 
-function deleteModal(){
+$('.postDelete').click(function(e){
+  e.preventDefault();
+
+  // Reload page function
+  function reloadPage(){
+    setTimeout(function() {
+      location.reload(true);
+    }, 0);
+  }
+  // Reload page function
+
   const deleteDialog = document.getElementById("deleteDialog");
   const closeDelete = document.getElementById("closeDelete");
+
+  var id = $(this).val();
+
+  // Put the modal over here
 
   // Debugging if working correctly
   function openCheck(deleteDialog) {
@@ -15,50 +29,62 @@ function deleteModal(){
   }
 
   // Show the light box containing the user record ready to update
-  // deleteDialog.showModal();
+  deleteDialog.showModal();
+  openCheck(deleteDialog);
 
-  // Now, the modal delete showed
-  if(deleteDialog.showModal()){
-    // Update / Edit 
-    $(document).ready(function(){
-      $('#deleteRec').click(function(e){
-        e.preventDefault();
+  // --- debug --- // 
+  // alert(id);
+  console.log(id);
 
-        // NOTE: Get the id specifically
-        // var deleteRecord = $(this).val(); // MALI 'TO
+  // Delete button variable
+  var deleteRecord = $('#deleteRec');
 
-        $.ajax({
-          url: "./controller/insertHandler.php",
-          type: "POST",
-          data: { 
-            postDelete: true,
-            delete: deleteRecord 
-          },
-          success: function(res){
-            console.log(res);
-          },
-          error: function(xhr, status, error){
-            console.log(error); // xhr - XMLHttpRequest
-          }
-        })
-      })
-    });
-    // Update / Edit 
-  }
+  // if the delete button is click
+  if(deleteRecord.click(function(e){
+    e.preventDefault();
+    // then do the jquery ajax request
+    $.ajax({
+      url: "./controller/userHandler.php",
+      type: "POST",
+      data: { 
+        deleteRec: true,
+        delete: id 
+      },
+      success: function(res){
+        // $('#deleteDialog').close();
+        deleteDialog.close();
+        console.log(res);
+        reloadPage();
+        // Pop the check modal
+          // and exit after 100 milisecs
+      },
+      error: function(xhr, status, error){
+        console.log(error); // xhr - XMLHttpRequest
+      }
+    })
+  }))
 
+  // Debug
+  // $('#deleteEx').click(function(e){
+  //   e.preventDefault();
 
-  // openCheck(deleteDialog);
+  //   deleteDialog.close();
 
+  // })
+  
+    
 
   // Form close button closes the dialog box
   closeDelete.addEventListener("click", () => {
     deleteDialog.close();
     openCheck(deleteDialog);
 
-    setTimeout(function() {
-      location.reload(true);
-    }, 0);
-  });
-}
+    // setTimeout(function() {
+    //   location.reload(true);
+    // }, 0);
 
-// Modal / dialog edit
+  });
+
+});
+
+// Update / Edit 

@@ -1,7 +1,7 @@
 
 // Last name validation
 function editCompleteAddress(){
-  let completeAddress = document.getElementById("completeAddress");
+  let completeAddress = document.getElementById("street");
   let completeAddressValue = completeAddress.value;
 
   let validationCompleteAddress = document.getElementById("validationCompleteAddress");

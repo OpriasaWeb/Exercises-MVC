@@ -21,21 +21,20 @@ $(document).ready(function(){
         var status= $('#status').val();
 
         // Insert accountdetails
-        var account_id = $('#account_id').val();
         var full_address = ddrss + ", " + barangayName + ", " + cityName + ", " + provinceName + ", " + regionName + ", " + islandName;
         var gender = $('#gender').val();
 
 
-        console.log(fullname, status, account_id, full_address, gender);
+        console.log(fullname, status, full_address, gender);
 
         if(fullname !== ''){
             $.ajax({
-                url: "./controller/insertHandler.php",
+                url: "./controller/userHandler.php",
                 type: "POST",
                 data: {
+                    insert: true,
                     fullname: fullname,
                     status: status,
-                    account_id: account_id,
                     full_address: full_address,
                     gender: gender
                 },

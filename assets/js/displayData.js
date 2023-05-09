@@ -5,11 +5,6 @@ function displayData(){
   // Regex for address
   var addressRegex = /^[a-zA-Z0-9\s,'-.]*$/;
 
-  // Address
-  var inputAddress = document.getElementById("address");
-  var addressValue = inputAddress.value;
-
-
   // Regex for lastname and firstname 
   var regex = /^[a-zA-Z.\s]*$/;
 
@@ -41,27 +36,46 @@ function displayData(){
   var barangay = document.getElementById("barangay");
   var barangayValue = barangay.value;
 
-  // Birthdate
-  var birthdate = document.getElementById("datepicker");
-  var birthdateValue = birthdate.value;
+  // Address
+  var inputAddress = document.getElementById("address");
+  var addressValue = inputAddress.value;  
 
   // Gender
   var gender = document.getElementById("gender");
   var genderValue = gender.value;
 
+  // Birthdate
+  var birthdate = document.getElementById("datepicker");
+  var birthdateValue = birthdate.value;
+
+
+
 
   // Required message span id
-  let resultLname = document.getElementById("resultLname");
-  let resultFname = document.getElementById("resultFname");
-  let resultAddress = document.getElementById("resultAddress");
-  let resultIsland = document.getElementById("resultIsland");
-  let resultRegion = document.getElementById("resultRegion");
-  let resultProvince = document.getElementById("resultProvince");
-  let resultCity = document.getElementById("resultCity");
-  let resultBarangay = document.getElementById("resultBarangay");
-  let resultGender = document.getElementById("resultGender");
-  let resultBirthdate = document.getElementById("resultBirthdate");
+  let resultLname = document.getElementById("resultLname"), resultFname = document.getElementById("resultFname"),
+  resultAddress = document.getElementById("resultAddress"), resultIsland = document.getElementById("resultIsland"),
+  resultRegion = document.getElementById("resultRegion"), resultProvince = document.getElementById("resultProvince"),
+  resultCity = document.getElementById("resultCity"), resultBarangay = document.getElementById("resultBarangay"), 
+  resultGender = document.getElementById("resultGender"), resultBirthdate = document.getElementById("resultBirthdate");
   // Required message span id
+
+  // If lastname left no value
+  if(lnameValue === ""){
+    resultLname.style.fontWeight = 'bold';
+    resultLname.style.color = 'red';
+    resultLname.innerText = "* required";
+    // If any of these if empty
+    alert("Last name should not be empty.");
+    return false;
+  } 
+  // If firstname left no value
+  if(fnameValue === ""){
+    resultFname.style.fontWeight = 'bold';
+    resultFname.style.color = 'red';
+    resultFname.innerText = "* required";
+    alert("First name should not be empty.");
+    return false;
+  } 
 
   // If island left no value
   if(islandValue === ""){
@@ -112,14 +126,26 @@ function displayData(){
     alert("Barangay should not be empty.");
     return false;
   }
+
+  // If address left no value
+  if(addressValue === ""){
+    resultAddress.style.fontWeight = 'bold';
+    resultAddress.style.color = 'red';
+    resultAddress.innerText = "* required";
+    alert("Address should not be empty.");
+    return;
+  } 
+
   // If gender left no value
   var allowedValues = ['male', 'female'];
+  
   if(genderValue.selectedIndex === 0){
     resultGender.style.fontWeight = 'bold';
     resultGender.style.color = 'red';
     resultGender.innerText = "* required";
-    // If any of these if empty
-    alert("Gender is required.");
+    // If any of these is empty
+    // alert("Gender is required.");
+    console.log("Gender is required.");
     return false;
   } else if (!allowedValues.includes(genderValue)) {
     // If the user value is not in the allowed ENUM values, show an error message
@@ -135,31 +161,6 @@ function displayData(){
     alert("Birthdate should not be empty.");
     return false;
   }
-  // If lastname left no value
-  if(lnameValue === ""){
-    resultLname.style.fontWeight = 'bold';
-    resultLname.style.color = 'red';
-    resultLname.innerText = "* required";
-    // If any of these if empty
-    alert("Last name should not be empty.");
-    return;
-  } 
-  // If firstname left no value
-  if(fnameValue === ""){
-    resultFname.style.fontWeight = 'bold';
-    resultFname.style.color = 'red';
-    resultFname.innerText = "* required";
-    alert("First name should not be empty.");
-    return;
-  } 
-  // If address left no value
-  if(addressValue === ""){
-    resultAddress.style.fontWeight = 'bold';
-    resultAddress.style.color = 'red';
-    resultAddress.innerText = "* required";
-    alert("Address should not be empty.");
-    return;
-  } 
 
   if(!regex.test(lnameValue) || !regex.test(fnameValue) || !addressRegex.test(addressValue)){
     // if any of these is false

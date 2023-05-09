@@ -1,7 +1,8 @@
 
 // Date picker
 $(function(){
-  var ageAllowed = new Date('2002-12-31'); // set the start date where the age bracket is allowed, 21 years old up.
+  var ageAllowed = new Date(); // set the start date where the age bracket is allowed, 21 years old up.
+  ageAllowed.setFullYear(ageAllowed.getFullYear() - 21);
   $("#datepicker").datepicker({
     changeMonth: true,
     changeYear: true,
@@ -10,4 +11,6 @@ $(function(){
   });
 });
 // Date picker
+
+
 

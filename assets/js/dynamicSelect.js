@@ -7,7 +7,7 @@ $(document).ready(function(){
     var islandId = $(this).val();
 
     $.ajax({
-      url: "./controller/placesController.php",
+      url: "./controller/addressController.php",
       method: 'POST',
       data:{
         island_id: islandId
@@ -23,7 +23,7 @@ $(document).ready(function(){
     // var islandId = $("#island").val();
     var regionId = $(this).val();
     $.ajax({
-      url: "./controller/placesController.php",
+      url: "./controller/addressController.php",
       method: 'POST',
       data:{
         region_id: regionId
@@ -38,7 +38,7 @@ $(document).ready(function(){
   $("#province").change(function(){
     var provinceId = $(this).val();
     $.ajax({
-      url: "./controller/placesController.php",
+      url: "./controller/addressController.php",
       method: 'POST',
       data:{
         province_id: provinceId
@@ -53,7 +53,7 @@ $(document).ready(function(){
   $("#city").change(function(){
     var cityId = $(this).val();
     $.ajax({
-      url: "./controller/placesController.php",
+      url: "./controller/addressController.php",
       method: 'POST',
       data:{
         city_id: cityId
